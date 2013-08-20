@@ -92,7 +92,8 @@
 					if(m==1)
 					{
 						$(".submenu1").css("background-color","#777777");
-						alert(lat);
+						showAlert();
+						//alert(lat);
 						m=0;
 					}
 					else
@@ -165,6 +166,21 @@
 			    function onError(error) {
 			        alert('code: '    + error.code    + '\n' +
 			              'message: ' + error.message + '\n');
+			    }
+			    function alertDismissed() {
+			            // do something
+			    }
+			
+			    // Show a custom alertDismissed
+			    //
+			    function showAlert() 
+			    {
+			        navigator.notification.alert(
+			            lat,  // message
+			            alertDismissed,         // callback
+			            'Latitude',            // title
+			            'Done'                  // buttonName
+			        );
 			    }
 		</script>
 	</head>
