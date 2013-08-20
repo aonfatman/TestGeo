@@ -1,0 +1,156 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<script type="text/javascript" src="jquery-2.0.3.js"></script>
+		<link rel="stylesheet" href="pure-min.css" type="text/css">
+		<style>
+			body{
+				font-family:cursive;
+				font-size:1.0em;
+				overflow:hidden;
+			}
+			header{
+				width:100%;
+				height:60px;
+				background-color:rgb(2, 57, 94);
+				line-height:60px;
+				float:left;
+				text-align:center;
+			}
+			.container{
+				display:none;
+				width:100%;
+				position:absolute;
+				top:0px;
+				left:1px;
+				z-index:1;
+				
+			}
+			span{
+				font-size:40px;
+				color:#fff;
+			}
+			.image{
+				display:none;
+				width:100%;
+				height:100%;
+				text-align:center;
+				position:fixed;
+				top:20%;
+			}
+			.menu{
+				display:none;
+				height:100%;
+				width:150px;
+				left:-150px;
+				background-color:#fff;
+				z-index:100;
+			}
+			#headmenu{
+				position:fixed;
+				top:0px;
+				height:60px;
+				width:150px;
+				background-color:#333333;
+				line-height:60px;
+				text-align:center;
+				color:#fff;
+			}
+			.submenu1{
+				position:fixed;
+				top:61px;
+				height:60px;
+				width:150px;
+				background-color:#555555;
+				line-height:60px;
+				text-align:center;
+				color:#fff;
+			}
+			.submenu2{
+				position:fixed;
+				top:122px;
+				height:60px;
+				width:150px;
+				background-color:#555555;
+				line-height:60px;
+				text-align:center;
+				color:#fff;
+			}
+
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".container").fadeIn(1000);
+				$(".image").fadeIn(2000);
+				var m=1;
+				$(".submenu1").hover(function(){
+					if(m==1)
+					{
+						$(this).css("background-color","#777777");
+						m=0;
+					}
+					else
+					{
+						$(this).css("background-color","#555555");
+						m=1;
+					}
+				});
+				var m2=1;
+				$(".submenu2").hover(function(){
+					if(m2==1)
+					{
+						$(this).css("background-color","#777777");
+						m2=0;
+					}
+					else
+					{
+						$(this).css("background-color","#555555");
+						m2=1;
+					}
+				});
+				var s=1;
+				$("span").on("click",function(){
+					if(s==1)
+					{
+						$(".container").animate({left:150},500);
+						$(".image").animate({left:150},500);
+						$(".menu").fadeIn(1000);
+						s=0;
+					}
+					else
+					{
+						$(".container").animate({left:0},500);
+						$(".image").animate({left:0},500);
+						$(".menu").fadeOut(1000);
+						s=1;
+					}
+				});
+				
+
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<span>Geolocation</span>
+			</header>
+		</div>
+		<div class="image">
+			<img src="e.jpg" alt="e">
+		</div>
+		<div class="menu">
+			<div id="headmenu">
+				Menu
+			</div>
+			<div class="submenu1">
+				Latitude
+			</div>
+			<div class="submenu2">
+				Longitude
+			</div>
+		</div>
+
+	</body>
+</html>
