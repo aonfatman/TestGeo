@@ -92,7 +92,7 @@
 					if(m==1)
 					{
 						$(".submenu1").css("background-color","#777777");
-						showConfirm();
+						lat();
 						//alert(lat);
 						m=0;
 					}
@@ -107,7 +107,7 @@
 					if(m2==1)
 					{
 						$(".submenu2").css("background-color","#777777");
-						alert(lon);
+						lon();
 						m2=0;
 					}
 					else
@@ -171,14 +171,26 @@
 		        	alert('Latitude ' + lat);
 
 			    }
+			    function onConfirm2(buttonIndex) {
+		        	alert('Longitude ' + lon);
+
+			    }
 			
 			    // Show a custom confirmation dialog
 			    //
-			    function showConfirm() {
+			    function lat() {
 			        navigator.notification.confirm(
 			            'Sure?', // message
 			             onConfirm,            // callback to invoke with index of button pressed
 			            'Latitude',           // title
+			            'Sure!!!'         // buttonLabels
+			        );
+			    }
+			    function lon() {
+			        navigator.notification.confirm(
+			            'Sure?', // message
+			             onConfirm2,            // callback to invoke with index of button pressed
+			            'Longitude',           // title
 			            'Sure!!!'         // buttonLabels
 			        );
 			    }
