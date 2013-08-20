@@ -92,7 +92,7 @@
 					if(m==1)
 					{
 						$(".submenu1").css("background-color","#777777");
-						showAlert();
+						showConfirm();
 						//alert(lat);
 						m=0;
 					}
@@ -167,19 +167,18 @@
 			        alert('code: '    + error.code    + '\n' +
 			              'message: ' + error.message + '\n');
 			    }
-			    function alertDismissed() {
-			            // do something
+			    function onConfirm(buttonIndex) {
+			        //alert('You selected button ' + buttonIndex);
 			    }
 			
-			    // Show a custom alertDismissed
+			    // Show a custom confirmation dialog
 			    //
-			    function showAlert() 
-			    {
-			        navigator.notification.alert(
-			            lat,  // message
-			            alertDismissed,         // callback
-			            'Latitude',            // title
-			            'Done'                  // buttonName
+			    function showConfirm() {
+			        navigator.notification.confirm(
+			            lat, // message
+			             onConfirm,            // callback to invoke with index of button pressed
+			            'Latitude',           // title
+			            'Done'         // buttonLabels
 			        );
 			    }
 		</script>
