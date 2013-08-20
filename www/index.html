@@ -80,7 +80,7 @@
 			}
 
 		</style>
-		<script type="text/javascript">
+		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function(){
 				$(".container").fadeIn(1000);
 				$(".image").fadeIn(2000);
@@ -89,6 +89,7 @@
 					if(m==1)
 					{
 						$(this).css("background-color","#777777");
+						alert(lat);
 						m=0;
 					}
 					else
@@ -102,6 +103,7 @@
 					if(m2==1)
 					{
 						$(this).css("background-color","#777777");
+						alet(lon);
 						m2=0;
 					}
 					else
@@ -130,6 +132,38 @@
 				
 
 			});
+			document.addEventListener("deviceready", onDeviceReady, false);
+
+			    // device APIs are available
+			    //
+			    function onDeviceReady() {
+			        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+			    }
+			
+			    // onSuccess Geolocation
+			    //
+			    var lat="";
+			    var lon="";
+			    function onSuccess(position) {
+			        var element = document.getElementById('geolocation');
+			        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+			                            'Longitude: '          + position.coords.longitude             + '<br />' +
+			                            'Altitude: '           + position.coords.altitude              + '<br />' +
+			                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+			                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+			                            'Heading: '            + position.coords.heading               + '<br />' +
+			                            'Speed: '              + position.coords.speed                 + '<br />' +
+			                            'Timestamp: '          + position.timestamp                    + '<br />';
+			    	lat = position.coords.latitude;
+			    	lon = position.coords.longitude;
+			    }
+			
+			    // onError Callback receives a PositionError object
+			    //
+			    function onError(error) {
+			        alert('code: '    + error.code    + '\n' +
+			              'message: ' + error.message + '\n');
+			    }
 		</script>
 	</head>
 	<body>
