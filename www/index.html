@@ -168,17 +168,18 @@
 			              'message: ' + error.message + '\n');
 			    }
 			    function onConfirm(buttonIndex) {
-			        //alert('You selected button ' + buttonIndex);
+		        	alert('Latitude ' + lat);
+
 			    }
 			
 			    // Show a custom confirmation dialog
 			    //
 			    function showConfirm() {
 			        navigator.notification.confirm(
-			            lat, // message
+			            'Sure?', // message
 			             onConfirm,            // callback to invoke with index of button pressed
 			            'Latitude',           // title
-			            'Done'         // buttonLabels
+			            'Sure!!!'         // buttonLabels
 			        );
 			    }
 		</script>
