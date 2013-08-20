@@ -81,7 +81,10 @@
 
 		</style>
 		<script type="text/javascript" charset="utf-8">
+			var lat="";
+			var lon="";
 			$(document).ready(function(){
+				$("p").hide();
 				$(".container").fadeIn(1000);
 				$(".image").fadeIn(2000);
 				var m=1;
@@ -142,8 +145,7 @@
 			
 			    // onSuccess Geolocation
 			    //
-			    var lat="";
-			    var lon="";
+			    
 			    function onSuccess(position) {
 			        var element = document.getElementById('geolocation');
 			        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
@@ -186,6 +188,6 @@
 				Longitude
 			</div>
 		</div>
-
+		<p id="geolocation">Finding geolocation...</p>
 	</body>
 </html>
