@@ -171,7 +171,7 @@
 		        	alert('Latitude ' + lat);
 
 			    }
-			    function onConfirm2(buttonIndex) {
+			    function onConfirms(buttonIndex) {
 		        	alert('Longitude ' + lon);
 
 			    }
@@ -189,7 +189,7 @@
 			    function lon() {
 			        navigator.notification.confirm(
 			            'Sure?', // message
-			             onConfirm2,            // callback to invoke with index of button pressed
+			             onConfirms,            // callback to invoke with index of button pressed
 			            'Longitude',           // title
 			            'Sure!!!'         // buttonLabels
 			        );
